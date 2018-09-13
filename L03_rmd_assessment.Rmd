@@ -1,0 +1,21 @@
+---
+title: "500 random variables from normal distribution"
+output: html_document
+---
+
+
+```{r, include= FALSE}
+library(tidyverse)
+```
+
+```{r assessment_rnv}
+
+plot_var = tibble(
+  x = rnorm(500, sd=0.5),
+  abs_x = abs(x)
+)
+ggplot(plot_var, aes(x = abs_x)) + geom_histogram()
+```
+
+The median of the variable containing absolute values is 
+`r round(median(plot_var$abs_x), digits = 2)`.
